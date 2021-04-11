@@ -2,7 +2,7 @@
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-green)](https://github.com/csbhr/CNLRN/blob/main/LICENSE)
 [![Python](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/pytorch-0.4.1-%237732a8)](https://pytorch.org/)
+[![PyTorch](https://img.shields.io/badge/pytorch-1.2.0-%237732a8)](https://pytorch.org/)
 
 #### [Paper](https://github.com/csbhr/CNLRN) | [Discussion](https://github.com/csbhr/CNLRN/issues)
 ### Learning A Cascaded Non-Local Residual Network for Super-resolving Blurry Images
