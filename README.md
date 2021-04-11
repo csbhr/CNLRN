@@ -9,11 +9,11 @@
 By [Haoran Bai](https://baihaoran.xyz/about), Songsheng Cheng, Jinhui Tang, [Jinshan Pan](https://jspan.github.io/)
 
 ## Updates
-[2021-04-12] Pretrained models are available [[Here]](https://drive.google.com/drive/folders/1-JDSZvyQ8wzx5yLou4IEa6TWfQq1dymW?usp=sharing)!
+[2021-04-12] Pretrained models are available [[Here]](https://drive.google.com/drive/folders/1-JDSZvyQ8wzx5yLou4IEa6TWfQq1dymW?usp=sharing)!  
 [2021-04-12] Add training code!  
 [2021-04-12] Testing code is available!
 
-## Experimental Results
+## Abstract
 Deblurring low-resolution images is quite challenging as blur exists in the images and the resolution of the images is low. Existing deblurring methods usually require high-resolution input while the super-resolution methods usually assume that the blur is known or small. Simply applying the deblurring and super-resolution does not solve this problem well. In this paper, we develop an effective end-to-end trainable deep neural network to estimate latent high-resolution images from blurry low-resolution ones. The proposed deep neural network mainly contains the deblurring module and super-resolution module. The deblurring module is first used to generate intermediate clear features. Then the super-resolution module is used to generate clear high-resolution images from the intermediate clear features. To generate high-quality images, we develop a non-local residual network (NLRN) as the super-resolution module so that more useful features can be better explored. To better constrain the network and reduce the training difficulty, we develop an effective constraint based on image gradients for edge preservation and adopt the progressive upsampling mechanism. We solve the proposed end-to-end trainable network in a cascaded manner. Both quantitative and qualitative results on the benchmarks demonstrate the effectiveness of the proposed method. Moreover, the proposed method achieves top-3 performance on the low-resolution track of the NTIRE 2021 Image Deblurring Challenge.
 
 More detailed analysis and experimental results are included in [[Paper]](https://github.com/csbhr/CNLRN).
@@ -47,18 +47,18 @@ More detailed analysis and experimental results are included in [[Paper]](https:
             |--train_240_sharp_bicubic_X4.lmdb
         |--train_240
             |--sharp
-		            |--000
-            		:
-		            |--239
-						|--blur_bicubic_X4
-						|--sharp_bicubic_X4
+                |--000
+                :
+                |--239
+            |--blur_bicubic_X4
+            |--sharp_bicubic_X4
         |--Val300
             |--sharp
-		            |--000_00000009.png
-            		:
-		            |--029_00000099.png
-						|--blur_bicubic_X4
-						|--sharp_bicubic_X4
+                |--000_00000009.png
+                :
+                |--029_00000099.png
+            |--blur_bicubic_X4
+            |--sharp_bicubic_X4
 ```
 - We use LDMB for faster IO speed. Please use the following script to generate lmdb files:
 ```
@@ -84,7 +84,6 @@ python -m torch.distributed.launch --nproc_per_node=2 --master_port=4321 train.p
 
 ### Testing
 
-#### Quick Test
 - Using the following commands:
 ```
 cd ./code
@@ -94,10 +93,10 @@ python inference_image_with_GT.py --name_flag CNLRN_Val300 --input_path ../datas
 ## Citation
 ```
 @InProceedings{Bai_2021_CVPRW,
-	author = {Bai, Haoran and Cheng, Songsheng and Tang, Jinhui and Pan, Jinshan},
-	title = {Learning A Cascaded Non-Local Residual Network for Super-resolving Blurry Images},
-	booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition WorkShops (CVPRW)},
-	month = {June},
-	year = {2021}
+  author = {Bai, Haoran and Cheng, Songsheng and Tang, Jinhui and Pan, Jinshan},
+  title = {Learning A Cascaded Non-Local Residual Network for Super-resolving Blurry Images},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition WorkShops (CVPRW)},
+  month = {June},
+  year = {2021}
 }
 ```
