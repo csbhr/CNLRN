@@ -1,0 +1,67 @@
+#### general settings
+name: SRN_PreDeblur
+use_tb_logger: true
+model: sr
+distortion: sr
+scale: 1
+gpu_ids: [0, 1]
+
+#### datasets
+datasets:
+  train:
+    name: REDSBlurBic
+    mode: LQGT
+    dataroot_GT: ../dataset/REDS/lmdb/train_240_sharp_bicubic_X4.lmdb
+    dataroot_LQ: ../dataset/REDS/lmdb/train_240_blur_bicubic_X4.lmdb
+
+    use_shuffle: true
+    n_workers: 6  # per GPU
+    batch_size: 32
+    GT_size: 128
+    use_flip: true
+    use_rot: true
+    color: RGB
+    scale: 1
+  val:
+    name: REDSVal
+    mode: image_test
+    dataroot_GT: ../dataset/REDS/Val300/sharp_bicubic_X4
+    dataroot_LQ: ../dataset/REDS/Val300/blur_bicubic_X4
+    cache_data: True
+
+#### network structures
+network_G:
+  which_model_G: PreDeblur
+  n_colors: 3
+  n_deblur_blocks: 20
+  n_feats: 64
+
+#### path
+path:
+  pretrain_model_G: ~
+  strict_load: true
+  resume_state: ~
+
+#### training settings: learning rate scheme, loss
+train:
+  lr_G: !!float 1e-4
+  lr_scheme: CosineAnnealingLR_Restart
+  beta1: 0.9
+  beta2: 0.99
+  niter: 600000
+  warmup_iter: -1  # no warm up
+  T_period: [150000, 150000, 150000, 150000]
+  restarts: [150000, 300000, 450000]
+  restart_weights: [1, 1, 1]
+  eta_min: !!float 1e-7
+
+  pixel_criterion: l1
+  pixel_weight: 1.0
+  val_freq: !!float 2e3
+
+  manual_seed: 0
+
+#### logger
+logger:
+  print_freq: 100
+  save_checkpoint_freq: !!float 2e3
