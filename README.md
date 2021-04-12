@@ -13,13 +13,21 @@ By [Haoran Bai](https://baihaoran.xyz/about), Songsheng Cheng, Jinhui Tang, [Jin
 [2021-04-12] Add training code!  
 [2021-04-12] Testing code is available!
 
-## Abstract
-Deblurring low-resolution images is quite challenging as blur exists in the images and the resolution of the images is low. Existing deblurring methods usually require high-resolution input while the super-resolution methods usually assume that the blur is known or small. Simply applying the deblurring and super-resolution does not solve this problem well. In this paper, we develop an effective end-to-end trainable deep neural network to estimate latent high-resolution images from blurry low-resolution ones. The proposed deep neural network mainly contains the deblurring module and super-resolution module. The deblurring module is first used to generate intermediate clear features. Then the super-resolution module is used to generate clear high-resolution images from the intermediate clear features. To generate high-quality images, we develop a non-local residual network (NLRN) as the super-resolution module so that more useful features can be better explored. To better constrain the network and reduce the training difficulty, we develop an effective constraint based on image gradients for edge preservation and adopt the progressive upsampling mechanism. We solve the proposed end-to-end trainable network in a cascaded manner. Both quantitative and qualitative results on the benchmarks demonstrate the effectiveness of the proposed method. Moreover, the proposed method achieves top-3 performance on the low-resolution track of the NTIRE 2021 Image Deblurring Challenge.
+## Overview
+
+Deblurring low-resolution images is quite challenging as blur exists in the images and the resolution of the images is low. Existing deblurring methods usually require high-resolution input while the super-resolution methods usually assume that the blur is known or small. Simply applying the deblurring and super-resolution does not solve this problem well.
+
+![top-result](https://z3.ax1x.com/2021/04/12/cBkSDx.png) 
+
+In this work, we jointly solve the image deblurring and super-resolution in a cascaded manner and develop a non-local residual network (NLRN) as the SR module to boost the performance of blurry image SR. In addition, We develop an effective constraint based on image gradients for edge preservation and adopt the progressive upsampling mechanism to better constrain the network and reduce the training difficulty.
+
+Both quantitative and qualitative results on the benchmarks demonstrate the effectiveness of the proposed method, and it achieves top-3 performance on the low-resolution track of the NTIRE 2021 Image Deblurring Challenge
 
 More detailed analysis and experimental results are included in [[Paper]](https://github.com/csbhr/CNLRN).
 
 ## Dependencies
 
+- This repository is based on [[EDVR/old_version]](https://github.com/xinntao/EDVR/tree/old_version)
 - Linux (Tested on Ubuntu 18.04)
 - Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
 - [PyTorch 1.2.0](https://pytorch.org/): `conda install pytorch=1.2.0 torchvision cudatoolkit=9.2 -c pytorch`
@@ -60,7 +68,7 @@ More detailed analysis and experimental results are included in [[Paper]](https:
             |--blur_bicubic_X4
             |--sharp_bicubic_X4
 ```
-- We use LDMB for faster IO speed. Please use the following script to generate lmdb files:
+- We use LDMB to organize the training dataset for faster IO speed. Please use the following script to generate lmdb files:
 ```
 python ./code/create_lmdb.py
 ```
