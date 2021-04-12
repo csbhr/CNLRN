@@ -6,7 +6,7 @@
 
 #### [Paper](https://github.com/csbhr/CNLRN) | [Discussion](https://github.com/csbhr/CNLRN/issues)
 ### Learning A Cascaded Non-Local Residual Network for Super-resolving Blurry Images
-By [Haoran Bai](https://baihaoran.xyz/about), Songsheng Cheng, Jinhui Tang, [Jinshan Pan](https://jspan.github.io/)
+By [Haoran Bai](https://csbhr.github.io/about), Songsheng Cheng, Jinhui Tang, [Jinshan Pan](https://jspan.github.io/)
 
 ## Updates
 [2021-04-12] Pretrained models are available [[Here]](https://drive.google.com/drive/folders/1-JDSZvyQ8wzx5yLou4IEa6TWfQq1dymW?usp=sharing)!  
