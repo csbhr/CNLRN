@@ -19,7 +19,7 @@ Deblurring low-resolution images is quite challenging as blur exists in the imag
 
 ![top-result](https://z3.ax1x.com/2021/04/12/cBkSDx.png) 
 
-In this work, we jointly solve the image deblurring and super-resolution in a cascaded manner and develop a non-local residual network (NLRN) as the SR module to boost the performance of blurry image SR. In addition, We develop an effective constraint based on image gradients for edge preservation and adopt the progressive upsampling mechanism to better constrain the network and reduce the training difficulty.
+In this work, we jointly solve the image deblurring and super-resolution in a cascaded manner and develop a non-local residual network (NLRN) as the SR module to boost the performance of blurry image SR. In addition, we develop an effective constraint based on image gradients for edge preservation and adopt the progressive upsampling mechanism to better constrain the network and reduce the training difficulty.
 
 Both quantitative and qualitative results on the benchmarks demonstrate the effectiveness of the proposed method, and it achieves top-3 performance on the low-resolution track of the NTIRE 2021 Image Deblurring Challenge
 
