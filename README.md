@@ -17,7 +17,7 @@ By [Haoran Bai](https://csbhr.github.io/about), Songsheng Cheng, Jinhui Tang, [J
 
 Deblurring low-resolution images is quite challenging as blur exists in the images and the resolution of the images is low. Existing deblurring methods usually require high-resolution input while the super-resolution methods usually assume that the blur is known or small. Simply applying the deblurring and super-resolution does not solve this problem well.
 
-![top-result](https://z3.ax1x.com/2021/04/12/cBkSDx.png) 
+![top-result](https://z3.ax1x.com/2021/04/12/cBH63D.png) 
 
 In this work, we jointly solve the image deblurring and super-resolution in a cascaded manner and develop a non-local residual network (NLRN) as the SR module to boost the performance of blurry image SR. In addition, we develop an effective constraint based on image gradients for edge preservation and adopt the progressive upsampling mechanism to better constrain the network and reduce the training difficulty.
 
