@@ -70,7 +70,8 @@ More detailed analysis and experimental results are included in [[Paper]](https:
 ```
 - We use LDMB to organize the training dataset for faster IO speed. Please use the following script to generate lmdb files:
 ```
-python ./code/create_lmdb.py
+cd ./code
+python create_lmdb.py
 ```
 
 ### Training
